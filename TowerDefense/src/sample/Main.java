@@ -104,7 +104,7 @@ public class Main extends Application {
 
     public void render() {
         Map.drawMap(gc);
-
+        Road.drawPoint(gc);
         spawners.forEach(g -> g.render(gc));
         gameObjects.forEach(g -> g.render(gc));
         bullets.forEach(g -> g.render(gc));

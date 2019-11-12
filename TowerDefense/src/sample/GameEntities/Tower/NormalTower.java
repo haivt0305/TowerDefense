@@ -43,6 +43,8 @@ public class NormalTower extends AbstractTower {
 
         Image gun=gunImgView.snapshot(snapshotParameters,null);
 
+        gc.fillOval(i - fireRange * Config.tileScale + 32,j - fireRange * Config.tileScale + 32,fireRange * Config.tileScale * 2,fireRange * Config.tileScale * 2);
+
         gc.drawImage(pedestal, i, j);
         gc.drawImage(gun, i, j);
     }

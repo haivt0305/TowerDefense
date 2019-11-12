@@ -18,5 +18,14 @@ public class Road {
             new Point(19 * Config.tileScale, 7 * Config.tileScale)
     };
 
+    public static void drawPoint(GraphicsContext gc){
+        for (int n = 0; n < wayPoints.length; n++){
+            Circle point = new Circle();
+            point.setCenterX( wayPoints[n].getX() );
+            point.setCenterY( wayPoints[n].getY() );
+            point.setRadius(10);
+            gc.fillOval(wayPoints[n].getX(), wayPoints[n].getY(), 10, 10);
+        }
 
+    }
 }

@@ -9,9 +9,4 @@ public abstract class AbstractBullet extends AbstractTower {
 
     public double speed;
 
-    public int iBullet;
-    public int jBullet;
-    public int iLocated;
-    public int jLocated;
-
 }

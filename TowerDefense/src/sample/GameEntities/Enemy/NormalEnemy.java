@@ -56,10 +56,10 @@ public class NormalEnemy extends AbstractEnemy {
         Image base = baseImgView.snapshot(snapshotParameters,null);
         Image gun = gunImgView.snapshot(snapshotParameters,null);
 
+        gc.fillOval(i, j, 10, 10);
+
         gc.drawImage(base, i, j);
         gc.drawImage(gun, i, j);
-
-
     }
     public boolean enemyInRange(AbstractTower tower) {
         if (Point.distance(this.iCenter, this.jCenter, tower.iCenter, tower.jCenter) <= tower.fireRange * Config.tileScale){
