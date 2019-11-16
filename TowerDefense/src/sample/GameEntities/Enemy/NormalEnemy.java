@@ -12,33 +12,34 @@ import sample.GameEntities.Tower.AbstractTower;
 import sample.GameObject;
 import sample.Point;
 
-import static sample.Main.gameObjects;
-
 public class NormalEnemy extends AbstractEnemy {
 
     Image gun;
     Image pedestal;
 
-    int wayPointIndex = 0;
-    public sample.Point getNextWayPoint() {
-        if (wayPointIndex < Road.wayPoints.length - 1)
-            return Road.wayPoints[++wayPointIndex];
-        return null;
-    }
+    //int wayPointIndex = 0;
 
     public NormalEnemy(int x, int y) {
         this.x = x;
         this.y = y;
+
+        gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile291.png");
+        pedestal = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile268.png");
+
         i = x * Config.tileScale;
         j = y * Config.tileScale;
-        iCenter = x * Config.tileScale - 28;
-        jCenter = y * Config.tileScale - 28;
-        armor = 1;
+
+        widthImg = (int) pedestal.getWidth();
+        heightImg = (int) pedestal.getHeight();
+
+        iCenter = x * Config.tileScale + 5 + widthImg / 2;
+        jCenter = y * Config.tileScale + 5 + heightImg / 2;
+
+        enemyHealth = 5;
         gold = 2;
         speed = 3;
         direction = Direction.UP;
-        gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile292.png");
-        pedestal = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile269.png") ;
+
     }
 
 
@@ -47,78 +48,26 @@ public class NormalEnemy extends AbstractEnemy {
         SnapshotParameters snapshotParameters = new SnapshotParameters();
         snapshotParameters.setFill(Color.TRANSPARENT);
         ImageView gunImgView = new ImageView(gun);
-        ImageView baseImgView = new ImageView(pedestal);
+        ImageView pedestalImgView = new ImageView(pedestal);
 
 
         gunImgView.setRotate(this.direction.getDegree());
-        baseImgView.setRotate(this.direction.getDegree());
+        pedestalImgView.setRotate(this.direction.getDegree());
 
-        Image base = baseImgView.snapshot(snapshotParameters,null);
-        Image gun = gunImgView.snapshot(snapshotParameters,null);
+        Image pedestal = pedestalImgView.snapshot(snapshotParameters, null);
+        Image gun = gunImgView.snapshot(snapshotParameters, null);
 
-        gc.fillOval(i, j, 10, 10);
-
-        gc.drawImage(base, i, j);
+        gc.drawImage(pedestal, i, j);
         gc.drawImage(gun, i, j);
-    }
-    public boolean enemyInRange(AbstractTower tower) {
-        if (Point.distance(this.iCenter, this.jCenter, tower.iCenter, tower.jCenter) <= tower.fireRange * Config.tileScale){
-            return true;
-        }
-        return false;
-    }
+
+        gc.setFill(Color.BLACK);
+        gc.fillOval(i - 5, j - 5, 10, 10);
+        gc.setFill(Color.RED);
+        gc.fillOval(iCenter - 5, jCenter - 5, 10, 10);
+        gc.setFill(Color.BLACK);
+
+        //gc.fillOval(i, j, 10, 10);
 
 
-    void calculateDirection() {
-        if (wayPointIndex >= Road.wayPoints.length) {
-            return;
-        }
-
-        Point currentWP = Road.wayPoints[wayPointIndex];
-        if (Point.distance(i, j, currentWP.getX(), currentWP.getY()) <= speed) {
-            i = currentWP.getX();
-            j = currentWP.getY();
-            Point nextWayPoint = getNextWayPoint();
-            if (nextWayPoint == null) return;
-            double deltaX = nextWayPoint.getX() - i;
-            double deltaY = nextWayPoint.getY() - j;
-            if (deltaX > speed) direction = Direction.RIGHT;
-            else if (deltaX < -speed) direction = Direction.LEFT;
-            else if (deltaY > speed) direction = Direction.DOWN;
-            else if (deltaY <= -speed) direction = Direction.UP;
-        }
-    }
-
-
-    @Override
-    public void update() {
-
-        for(GameObject a:gameObjects) {
-
-            if(a.getClass().getName() == "sample.GameEntities.Tower.NormalTower") {
-                if(this.enemyInRange((AbstractTower) a));
-            }
-        }
-
-        calculateDirection();
-
-        switch (direction) {
-            case UP:
-                j -= speed;
-                jCenter -=speed;
-                break;
-            case DOWN:
-                j += speed;
-                jCenter +=speed;
-                break;
-            case LEFT:
-                i -= speed;
-                iCenter -=speed;
-                break;
-            case RIGHT:
-                i += speed;
-                iCenter +=speed;
-                break;
-        }
-    }
+}
 }

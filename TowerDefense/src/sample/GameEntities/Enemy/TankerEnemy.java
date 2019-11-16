@@ -12,7 +12,7 @@ import sample.GameEntities.Tower.AbstractTower;
 import sample.GameObject;
 import sample.Point;
 
-import static sample.Main.gameObjects;
+
 
 public class TankerEnemy extends AbstractEnemy {
 

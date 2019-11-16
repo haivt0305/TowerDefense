@@ -22,11 +22,11 @@ public class NormalTower extends AbstractTower {
         this.y = y;
         i = x * Config.tileScale;
         j = y * Config.tileScale;
-        iCenter = x * Config.tileScale - 32;
-        jCenter = y * Config.tileScale - 32;
-        damage = 1;
-        fireRate = 1.352;
-        fireRange = 3.5;
+        iCenter = x * Config.tileScale + 32;
+        jCenter = y * Config.tileScale + 32;
+        damage = 3;
+        fireRate = 15;
+        fireRange = 3;
         this.timeShot = 0;
         this.rota = 0;
         gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile249.png");
@@ -43,20 +43,20 @@ public class NormalTower extends AbstractTower {
 
         Image gun=gunImgView.snapshot(snapshotParameters,null);
 
-        gc.fillOval(i - fireRange * Config.tileScale + 32,j - fireRange * Config.tileScale + 32,fireRange * Config.tileScale * 2,fireRange * Config.tileScale * 2);
+        //gc.fillOval(i - fireRange * Config.tileScale + 32,j - fireRange * Config.tileScale + 32,fireRange * Config.tileScale * 2,fireRange * Config.tileScale * 2);
 
-        gc.drawImage(pedestal, i, j);
-        gc.drawImage(gun, i, j);
+        bullets.forEach(g->g.render(gc));
+        gc.setStroke(Color.GREENYELLOW);
+        gc.strokeOval(i-fireRange*Config.tileScale+32,j-fireRange*Config.tileScale+32,fireRange*Config.tileScale*2,fireRange*Config.tileScale*2);
+        gc.drawImage(pedestal,i,j);
+        gc.drawImage(gun,i,j);
+
+        gc.setFill(Color.BLACK);
+        gc.fillOval(i-5, j-5,10, 10);
+        gc.setFill(Color.RED);
+        gc.fillOval(iCenter-5,jCenter-5,10,10);
+        gc.setFill(Color.BLACK);
     }
 
-    public boolean enemyInRange(AbstractEnemy enemy) {
-        if(Point.distance(this.iCenter, this.jCenter, enemy.iCenter, enemy.jCenter) <= this.fireRange * Config.tileScale) {
-            return true;
-        }
-        return false;
-    }
 
-    public void update(){
-        super.update();
-    }
 }

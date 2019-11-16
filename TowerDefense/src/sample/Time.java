@@ -1,8 +1,9 @@
 package sample;
 
 import javafx.scene.canvas.GraphicsContext;
+import sample.GameEntities.ImmovableObject;
 
-public class Time extends GameObject {
+public class Time extends ImmovableObject {
     public  int[] time={0};
 
     public void upTime(){
@@ -17,12 +18,10 @@ public class Time extends GameObject {
         return time[0];
     }
 
-    @Override
     public void render(GraphicsContext gc) {
 
     }
 
-    @Override
     public void update() {
         time[0]++;
     }

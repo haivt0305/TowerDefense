@@ -13,27 +13,32 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-import sample.GameEntities.Map;
-import sample.GameEntities.Road;
-import sample.GameEntities.Spawner;
+import sample.GameEntities.*;
 import sample.GameEntities.Bullet.AbstractBullet;
-import sample.Gold;
 
 import sample.GameEntities.Tower.NormalTower;
 
 import java.util.ArrayList;
 
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
 
 
 public class Main extends Application {
     public static GraphicsContext gc;
-    public static List<GameObject> gameObjects = new ArrayList<>();
-    public static List<Spawner> spawners = new ArrayList<>();
+    //public static List<GameObject> gameObjects = new ArrayList<>();
+
     public static List<AbstractBullet> bullets = new ArrayList<>();
     public static Time time = new Time();
     public static Gold gold = new Gold(350);
+    public static PlayerHealth playerHealth = new PlayerHealth(20);
+    public static AnimationTimer timer;
+    public static List<MovableObject> movableObjects = new ArrayList<>();
+    public static List<ImmovableObject> immovableObjects = new ArrayList<>();
+    public static Group root = new Group();
+    public static Scene scene = new Scene(root);
+    public static Spawner spawner = new Spawner(10, 10, 100);
 
     public static void main(String[] args) {
         Application.launch(args);
@@ -44,10 +49,10 @@ public class Main extends Application {
         Canvas canvas = new Canvas(Config.tileWidth * Config.tileScale, Config.tileHeight *Config.tileScale);
         gc = canvas.getGraphicsContext2D();
 
-        Group root = new Group();
+        //Group root = new Group();
         root.getChildren().add(canvas);
 
-        Scene scene = new Scene(root);
+        //Scene scene = new Scene(root);
 
         stage.setTitle("Tower Defense");
 
@@ -73,23 +78,25 @@ public class Main extends Application {
 
                 root.getChildren().removeAll(imageView_menu, button);
 
-                AnimationTimer timer = new AnimationTimer() {
+                timer = new AnimationTimer() {
                     @Override
                     public void handle(long l) {
                         render();
-                        update();
+                        try{
+                            update();}
+                        catch (ConcurrentModificationException e){}
                     }
                 };
                 timer.start();
             }
         });
 
-        gameObjects.add(time);
-
-        gameObjects.add(gold);
-        gameObjects.add(new NormalTower(5,7));
-        gameObjects.add(new NormalTower(14,4));
-        spawners.add(new Spawner(50,20,5));
+        immovableObjects.add(time);
+        immovableObjects.add(playerHealth);
+        immovableObjects.add(gold);
+        movableObjects.add(new NormalTower(5,7));
+        movableObjects.add(new NormalTower(14,4));
+        movableObjects.add(new Spawner(10,10,100));
 
         root.getChildren().add(button);
         stage.setScene(scene);
@@ -97,17 +104,17 @@ public class Main extends Application {
     }
 
     public void update() {
-        spawners.forEach(Spawner::update);
-        gameObjects.forEach(GameObject::update);
-        bullets.forEach(AbstractBullet::update);
+        immovableObjects.forEach(ImmovableObject::update);
+        movableObjects.forEach(MovableObject::update);
+        //bullets.forEach(AbstractBullet::update);
     }
 
     public void render() {
         Map.drawMap(gc);
         Road.drawPoint(gc);
-        spawners.forEach(g -> g.render(gc));
-        gameObjects.forEach(g -> g.render(gc));
-        bullets.forEach(g -> g.render(gc));
+        movableObjects.forEach(g -> g.render(gc));
+        immovableObjects.forEach(g -> g.render(gc));
+        //bullets.forEach(g -> g.render(gc));
     }
 }
 

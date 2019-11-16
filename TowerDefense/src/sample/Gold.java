@@ -1,17 +1,16 @@
 package sample;
 
 import javafx.scene.canvas.GraphicsContext;
+import sample.GameEntities.ImmovableObject;
 
-public class Gold extends GameObject {
+public class Gold extends ImmovableObject {
 
     public int Gold;
-    int x;
-    int y;
 
     public Gold(int gold) {
         this.Gold = gold;
-        this.x = 18 * Config.tileScale;
-        this.y = 1 * Config.tileScale;
+        this.j = 18 * Config.tileScale;
+        this.j = 1 * Config.tileScale;
     }
 
     public Gold() {
@@ -31,7 +30,7 @@ public class Gold extends GameObject {
     }
 
     public void render(GraphicsContext gc) {
-        gc.fillText(toString(), x, y);
+        gc.fillText(toString(), i, j);
     }
 
     public void update() {
