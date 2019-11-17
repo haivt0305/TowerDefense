@@ -6,7 +6,7 @@ public class Rotation {
     public Rotation() {
 
     }
-    public Rotation(double rota){
+    public Rotation(double rota) {
         this.rota = rota;
     }
 

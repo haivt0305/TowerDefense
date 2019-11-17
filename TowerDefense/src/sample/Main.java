@@ -13,32 +13,36 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import org.xml.sax.SAXParseException;
 import sample.GameEntities.*;
-import sample.GameEntities.Bullet.AbstractBullet;
-
+import sample.GameEntities.Map;
 import sample.GameEntities.Tower.NormalTower;
+import sample.GameEntities.Spawner;
+import sample.GameEntities.MovableObject;
+import sample.GameEntities.ImmovableObject;
+import sample.GameEntities.PlayerHealth;
+import sample.GameEntities.Coin;
+import sample.Time;
 
 import java.util.ArrayList;
-
 import java.util.ConcurrentModificationException;
 import java.util.List;
-
+import java.util.*;
 
 
 public class Main extends Application {
-    public static GraphicsContext gc;
-    //public static List<GameObject> gameObjects = new ArrayList<>();
 
-    public static List<AbstractBullet> bullets = new ArrayList<>();
+    public static GraphicsContext gc;
     public static Time time = new Time();
-    public static Gold gold = new Gold(350);
-    public static PlayerHealth playerHealth = new PlayerHealth(20);
     public static AnimationTimer timer;
-    public static List<MovableObject> movableObjects = new ArrayList<>();
-    public static List<ImmovableObject> immovableObjects = new ArrayList<>();
+    public static Coin coin = new Coin(300);
+    public static PlayerHealth playerHealth = new PlayerHealth(20);
     public static Group root = new Group();
     public static Scene scene = new Scene(root);
+    public static List<MovableObject> movableObjects = new ArrayList<>();
+    public static List<ImmovableObject> immovableObjects = new ArrayList<>();
     public static Spawner spawner = new Spawner(10, 10, 100);
+    //public static Level level = new Level();
 
     public static void main(String[] args) {
         Application.launch(args);
@@ -46,25 +50,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-        Canvas canvas = new Canvas(Config.tileWidth * Config.tileScale, Config.tileHeight *Config.tileScale);
+        Canvas canvas = new Canvas(Config.tileWidth * Config.tileScale, Config.tileHeight * Config.tileScale);
         gc = canvas.getGraphicsContext2D();
 
-        //Group root = new Group();
         root.getChildren().add(canvas);
 
-        //Scene scene = new Scene(root);
-
         stage.setTitle("Tower Defense");
-
         stage.setResizable(false);
 
         Image start_button = new Image("file:src/AssetsKit_2/StartButton.png");
         ImageView imageView_start_button = new ImageView(start_button);
-
-        Button button = new Button("", imageView_start_button);
-        button.setWrapText(true);
-        button.setTranslateX(Config.tileWidth * Config.tileScale - 780);
-        button.setTranslateY(Config.tileHeight * Config.tileScale - 300);
 
         Image menu = new Image("file:src/AssetsKit_2/Menu.png");
         ImageView imageView_menu = new ImageView(menu);
@@ -72,52 +67,61 @@ public class Main extends Application {
         imageView_menu.setFitWidth(Config.tileWidth * Config.tileScale);
         root.getChildren().add(imageView_menu);
 
+
+        Button button = new Button("", imageView_start_button);
+        button.setWrapText(true);
+        button.setTranslateX(Config.tileWidth * Config.tileScale - 780);
+        button.setTranslateY(Config.tileHeight * Config.tileScale - 300);
+
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
 
                 root.getChildren().removeAll(imageView_menu, button);
+                /*root.getChildren().add(Store.normal);
+                root.getChildren().add(Store.machineGun);
+                root.getChildren().add(Store.sniper);*/
 
                 timer = new AnimationTimer() {
                     @Override
                     public void handle(long l) {
-                        render();
-                        try{
-                            update();}
-                        catch (ConcurrentModificationException e){}
+                        try {
+                            render();
+
+                            update();
+                         } catch (ConcurrentModificationException e) {
+                                }
                     }
                 };
                 timer.start();
             }
         });
-
         immovableObjects.add(time);
+        immovableObjects.add(coin);
         immovableObjects.add(playerHealth);
-        immovableObjects.add(gold);
-        movableObjects.add(new NormalTower(5,7));
-        movableObjects.add(new NormalTower(14,4));
-        movableObjects.add(new Spawner(10,10,100));
 
+        movableObjects.add(spawner);
+        movableObjects.add(new NormalTower(5, 7));
+        movableObjects.add(new NormalTower(14,4));
+        //movableObjects.add(new Spawner(53,10,1));
+        //movableObjects.add(bullets);
         root.getChildren().add(button);
+
+
         stage.setScene(scene);
         stage.show();
     }
 
-    public void update() {
-        immovableObjects.forEach(ImmovableObject::update);
+    public static void update() {
         movableObjects.forEach(MovableObject::update);
-        //bullets.forEach(AbstractBullet::update);
+        immovableObjects.forEach(ImmovableObject::update);
     }
 
-    public void render() {
+    public static void render() {
         Map.drawMap(gc);
-        Road.drawPoint(gc);
+        //Road.drawPoints(gc);
         movableObjects.forEach(g -> g.render(gc));
         immovableObjects.forEach(g -> g.render(gc));
-        //bullets.forEach(g -> g.render(gc));
+
     }
 }
-
-
-
-

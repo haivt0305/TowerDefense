@@ -8,14 +8,14 @@ import sample.Point;
 
 public class Road {
     public static final Point[] wayPoints = new Point[] {
-            new Point(1 * Config.tileScale, 8 * Config.tileScale),
-            new Point(3 * Config.tileScale, 8 * Config.tileScale),
-            new Point(3 * Config.tileScale, 5 * Config.tileScale),
-            new Point(5 * Config.tileScale, 5 * Config.tileScale),
-            new Point(5 * Config.tileScale, 1 * Config.tileScale),
-            new Point(11 * Config.tileScale, 1 * Config.tileScale),
-            new Point(11 * Config.tileScale, 7 * Config.tileScale),
-            new Point(19 * Config.tileScale, 7 * Config.tileScale)
+            new Point(1 * Config.tileScale + 32, 8 * Config.tileScale + 32),
+            new Point(3 * Config.tileScale + 32, 8 * Config.tileScale + 32),
+            new Point(3 * Config.tileScale + 32, 5 * Config.tileScale + 32),
+            new Point(5 * Config.tileScale + 32, 5 * Config.tileScale + 32),
+            new Point(5 * Config.tileScale + 32, 1 * Config.tileScale + 32),
+            new Point(11 * Config.tileScale + 32, 1 * Config.tileScale + 32),
+            new Point(11 * Config.tileScale + 32, 7 * Config.tileScale + 32),
+            new Point(19 * Config.tileScale + 32, 7 * Config.tileScale + 32)
     };
 
     public static void drawPoint(GraphicsContext gc){

@@ -4,20 +4,12 @@ import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import sample.Config;
+import sample.*;
 import javafx.scene.image.Image;
-import sample.Direction;
-import sample.GameEntities.Road;
-import sample.GameEntities.Tower.AbstractTower;
-import sample.GameObject;
-import sample.Point;
 
-public class NormalEnemy extends AbstractEnemy {
-
+public class NormalEnemy extends BaseEnemy {
     Image gun;
     Image pedestal;
-
-    //int wayPointIndex = 0;
 
     public NormalEnemy(int x, int y) {
         this.x = x;
@@ -26,22 +18,20 @@ public class NormalEnemy extends AbstractEnemy {
         gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile291.png");
         pedestal = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile268.png");
 
-        i = x * Config.tileScale;
-        j = y * Config.tileScale;
+        i = x * Config.tileScale +32;
+        j = y * Config.tileScale +32;
 
         widthImg = (int) pedestal.getWidth();
         heightImg = (int) pedestal.getHeight();
 
-        iCenter = x * Config.tileScale + 5 + widthImg / 2;
-        jCenter = y * Config.tileScale + 5 + heightImg / 2;
+        iCenter = x * Config.tileScale + 32 + widthImg / 2;
+        jCenter = y * Config.tileScale + 32 + heightImg / 2;
 
         enemyHealth = 5;
-        gold = 2;
-        speed = 3;
+        coin = 50;
+        speed = 5;
         direction = Direction.UP;
-
     }
-
 
     @Override
     public void render(GraphicsContext gc) {
@@ -63,11 +53,13 @@ public class NormalEnemy extends AbstractEnemy {
         gc.setFill(Color.BLACK);
         gc.fillOval(i - 5, j - 5, 10, 10);
         gc.setFill(Color.RED);
-        gc.fillOval(iCenter - 5, jCenter - 5, 10, 10);
+        gc.fillOval(iCenter - 5, jCenter - 5,10, 10);
+        gc.setFill(Color.RED);
+        gc.fillRect(i, j - 5, widthImg, 5);
+        gc.setFill(Color.GREEN);
+        gc.fillRect(i, j - 5, (double) (widthImg) * this.enemyHealth / 5, 5);
         gc.setFill(Color.BLACK);
-
-        //gc.fillOval(i, j, 10, 10);
-
-
-}
+        gc.setStroke(Color.BLACK);
+        gc.strokeRect(i,j-5,widthImg,5);
+    }
 }
