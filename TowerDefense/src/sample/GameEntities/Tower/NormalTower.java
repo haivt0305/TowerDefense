@@ -23,10 +23,10 @@ public class NormalTower extends BaseTower {
         jCenter = y * Config.tileScale + 32;
         damage = 3;
         fireRate = 20;
-        fireRange = 3;
+        fireRange = 3.52;
         this.timeShot = 0;
         this.rota = 0;
-        gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile249.png");
+        gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile203.png");
         pedestal = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile180.png");
 
     }

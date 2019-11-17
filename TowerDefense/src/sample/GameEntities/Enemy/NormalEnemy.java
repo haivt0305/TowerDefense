@@ -8,24 +8,24 @@ import sample.*;
 import javafx.scene.image.Image;
 
 public class NormalEnemy extends BaseEnemy {
-    Image gun;
+    //Image gun;
     Image pedestal;
 
     public NormalEnemy(int x, int y) {
         this.x = x;
         this.y = y;
 
-        gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile291.png");
-        pedestal = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile268.png");
+        //gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile291.png");
+        pedestal = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile245.png");
 
-        i = x * Config.tileScale +32;
-        j = y * Config.tileScale +32;
+        i = x * Config.tileScale;
+        j = y * Config.tileScale;
 
         widthImg = (int) pedestal.getWidth();
         heightImg = (int) pedestal.getHeight();
 
-        iCenter = x * Config.tileScale + 32 + widthImg / 2;
-        jCenter = y * Config.tileScale + 32 + heightImg / 2;
+        iCenter = x * Config.tileScale + widthImg / 2;
+        jCenter = y * Config.tileScale + heightImg / 2;
 
         enemyHealth = 5;
         coin = 50;
@@ -37,18 +37,18 @@ public class NormalEnemy extends BaseEnemy {
     public void render(GraphicsContext gc) {
         SnapshotParameters snapshotParameters = new SnapshotParameters();
         snapshotParameters.setFill(Color.TRANSPARENT);
-        ImageView gunImgView = new ImageView(gun);
+        //ImageView gunImgView = new ImageView(gun);
         ImageView pedestalImgView = new ImageView(pedestal);
 
 
-        gunImgView.setRotate(this.direction.getDegree());
+        //gunImgView.setRotate(this.direction.getDegree());
         pedestalImgView.setRotate(this.direction.getDegree());
 
         Image pedestal = pedestalImgView.snapshot(snapshotParameters, null);
-        Image gun = gunImgView.snapshot(snapshotParameters, null);
+       // Image gun = gunImgView.snapshot(snapshotParameters, null);
 
         gc.drawImage(pedestal, i, j);
-        gc.drawImage(gun, i, j);
+        //gc.drawImage(gun, i, j);
 
         gc.setFill(Color.BLACK);
         gc.fillOval(i - 5, j - 5, 10, 10);

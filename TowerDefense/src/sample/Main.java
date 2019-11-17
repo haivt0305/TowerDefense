@@ -16,12 +16,14 @@ import javafx.stage.Stage;
 import org.xml.sax.SAXParseException;
 import sample.GameEntities.*;
 import sample.GameEntities.Map;
+import sample.GameEntities.Tower.MachineGunTower;
 import sample.GameEntities.Tower.NormalTower;
 import sample.GameEntities.Spawner;
 import sample.GameEntities.MovableObject;
 import sample.GameEntities.ImmovableObject;
 import sample.GameEntities.PlayerHealth;
 import sample.GameEntities.Coin;
+import sample.GameEntities.Tower.SniperTower;
 import sample.Time;
 
 import java.util.ArrayList;
@@ -102,9 +104,8 @@ public class Main extends Application {
 
         movableObjects.add(spawner);
         movableObjects.add(new NormalTower(5, 7));
-        movableObjects.add(new NormalTower(14,4));
-        //movableObjects.add(new Spawner(53,10,1));
-        //movableObjects.add(bullets);
+        movableObjects.add(new MachineGunTower(1,6));
+        movableObjects.add(new SniperTower(3,3));
         root.getChildren().add(button);
 
 
@@ -119,7 +120,7 @@ public class Main extends Application {
 
     public static void render() {
         Map.drawMap(gc);
-        //Road.drawPoints(gc);
+        Road.drawPoint(gc);
         movableObjects.forEach(g -> g.render(gc));
         immovableObjects.forEach(g -> g.render(gc));
 
