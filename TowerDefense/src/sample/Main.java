@@ -45,6 +45,7 @@ public class Main extends Application {
     public static List<ImmovableObject> immovableObjects = new ArrayList<>();
     public static Spawner spawner = new Spawner(10, 10, 100);
     //public static Level level = new Level();
+    public static Shop shop = new Shop();
 
     public static void main(String[] args) {
         Application.launch(args);
@@ -80,9 +81,9 @@ public class Main extends Application {
             public void handle(ActionEvent actionEvent) {
 
                 root.getChildren().removeAll(imageView_menu, button);
-                /*root.getChildren().add(Store.normal);
-                root.getChildren().add(Store.machineGun);
-                root.getChildren().add(Store.sniper);*/
+                root.getChildren().add(Shop.normal);
+                root.getChildren().add(Shop.machineGun);
+                root.getChildren().add(Shop.sniper);
 
                 timer = new AnimationTimer() {
                     @Override
@@ -101,11 +102,12 @@ public class Main extends Application {
         immovableObjects.add(time);
         immovableObjects.add(coin);
         immovableObjects.add(playerHealth);
+        immovableObjects.add(shop);
 
         movableObjects.add(spawner);
-        movableObjects.add(new NormalTower(5, 7));
-        movableObjects.add(new MachineGunTower(1,6));
-        movableObjects.add(new SniperTower(3,3));
+        //movableObjects.add(new NormalTower(5, 7));
+        //movableObjects.add(new MachineGunTower(1,6));
+        //movableObjects.add(new SniperTower(3,3));
         root.getChildren().add(button);
 
 

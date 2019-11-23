@@ -5,8 +5,7 @@ import sample.Direction;
 import sample.GameEntities.MovableObject;
 import sample.GameEntities.Road;
 import sample.GameEntities.Tower.BaseTower;
-import sample.Main;
-import sample.Point;
+
 import sample.*;
 
 import static sample.Main.spawner;
@@ -14,30 +13,26 @@ import static sample.Main.spawner;
 
 public abstract class BaseEnemy extends MovableObject {
     public double enemyHealth;
-    public int coin;
-    public double speed;
-    public Direction direction;
+    int coin;
+    double speed;
+
+    Direction direction;
     public int widthImg;
     public int heightImg;
 
-    public int wayPointIndex = 0;
-    public Point getNextWayPoint() {
+    private int wayPointIndex = 0;
+
+    private Point getNextWayPoint() {
         if (wayPointIndex < Road.wayPoints.length - 1) {
             return Road.wayPoints[++wayPointIndex];
         }
         return null;
     }
 
-    public boolean isInRange(BaseTower tower){
-        if (Point.distance(this.iCenter, this.jCenter, tower.iCenter, tower.jCenter) <= tower.getFireRange() * Config.tileScale) {
-            return true;
-        }
-        return false;
-    }
-
-    void calculateDirection() {
+    private void calculateDirection() {
         if (wayPointIndex >= Road.wayPoints.length - 1) {
-            Main.playerHealth.setPlayerHealth(Main.playerHealth.getPlayerHealth() - 1);
+            // Enemy den way point cuoi
+            Main.playerHealth.setPlayerHealth(Main.playerHealth.getPlayerHealth()-1);
             spawner.enemies.remove(this);
         }
 

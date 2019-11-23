@@ -14,7 +14,7 @@ public abstract class BaseBullet extends MovableObject {
 
     public double damage;
     public double rota;
-    public BaseTower owner;
+    BaseTower owner;
 
     public boolean isInHitBox(BaseEnemy enemy) {
         if(iCenter <= enemy.i + enemy.widthImg && iCenter >= enemy.i && jCenter <= enemy.j + enemy.heightImg && jCenter >= enemy.j) {

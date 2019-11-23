@@ -29,8 +29,8 @@ public class NormalEnemy extends BaseEnemy {
 
         enemyHealth = 5;
         coin = 50;
-        speed = 5;
-        direction = Direction.UP;
+        speed = 19;
+        direction = Direction.RIGHT;
     }
 
     @Override

@@ -16,8 +16,8 @@ public class PlayerHealth extends ImmovableObject {
     public PlayerHealth(int playerHealth) {
         this.playerHealth = playerHealth;
 
-        this.j = 17 * Config.tileScale;
-        this.j = 3 * Config.tileScale;
+        this.j = 13 * Config.tileScale;
+        this.j = 4 * Config.tileScale;
     }
 
     public int getPlayerHealth() {
@@ -34,6 +34,8 @@ public class PlayerHealth extends ImmovableObject {
     }
     @Override
     public void render(GraphicsContext gc) {
+        gc.fillText(toString(), i, j);
+
     }
 
     @Override

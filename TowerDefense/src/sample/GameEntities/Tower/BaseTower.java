@@ -34,7 +34,7 @@ public abstract class BaseTower extends MovableObject {
 
     public void update() {
         for(BaseEnemy a: spawner.enemies) {
-            if(this.haveTarget((BaseEnemy) a)) {
+            if(this.haveTarget(a)) {
                 this.rota = Rotation.degree(this.iCenter,this.jCenter,((BaseEnemy) a).iCenter,((BaseEnemy) a).jCenter);
                 if(time.getTime() >= timeShot + fireRate) {
                     bullets.add(new NormalBullet(this.i, this.j, this.rota, this));
