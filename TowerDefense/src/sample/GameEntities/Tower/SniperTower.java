@@ -10,12 +10,11 @@ import sample.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import sample.GameEntities.Bullet.BaseBullet;
-import sample.GameEntities.Bullet.MachineGunBullet;
 import sample.GameEntities.Bullet.SniperBullet;
 import sample.GameEntities.Enemy.BaseEnemy;
 
 import static sample.Main.spawner;
-import static sample.Main.time;
+import static sample.Main.tick;
 
 public class SniperTower extends BaseTower {
     Image gun;
@@ -28,9 +27,10 @@ public class SniperTower extends BaseTower {
         j = y * Config.tileScale;
         iCenter = x * Config.tileScale + 32;
         jCenter = y * Config.tileScale + 32;
-        damage = 3;
-        fireRate = 20;
-        fireRange = 7;
+        damage = Config.SNIPER_BULLET_DAMAGE;
+        fireRate = Config.SNIPER_TOWER_FIRE_RATE;
+        fireRange = Config.SNIPER_TOWER_RANGE;
+        price = Config.SNIPER_TOWER_PRICE;
         this.timeShot = 0;
         this.rota = 0;
         gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile249.png");
@@ -43,9 +43,9 @@ public class SniperTower extends BaseTower {
         for (BaseEnemy a : spawner.enemies) {
             if (this.haveTarget(a)) {
                 this.rota = Rotation.degree(this.iCenter, this.jCenter, a.iCenter, a.jCenter);
-                if (time.getTime() >= timeShot + fireRate) {
+                if (tick.getTick() >= timeShot + fireRate) {
                     bullets.add(new SniperBullet(this.i, this.j, this.rota, this));
-                    timeShot = time.getTime();
+                    timeShot = tick.getTick();
                 }
                 break;
             }
@@ -68,15 +68,15 @@ public class SniperTower extends BaseTower {
         //gc.fillOval(i - fireRange * Config.tileScale + 32,j - fireRange * Config.tileScale + 32,fireRange * Config.tileScale * 2,fireRange * Config.tileScale * 2);
 
         bullets.forEach(g->g.render(gc));
-        gc.setStroke(Color.GREENYELLOW);
+        gc.setStroke(Color.RED);
         gc.strokeOval(i - fireRange * Config.tileScale + 32, j - fireRange * Config.tileScale + 32, fireRange * Config.tileScale * 2, fireRange * Config.tileScale * 2);
         gc.drawImage(pedestal, i, j);
         gc.drawImage(gun, i, j);
 
-        gc.setFill(javafx.scene.paint.Color.BLACK);
+        /*gc.setFill(javafx.scene.paint.Color.BLACK);
         gc.fillOval(i - 5, j - 5, 10, 10);
         gc.setFill(javafx.scene.paint.Color.RED);
         gc.fillOval(iCenter - 5,jCenter - 5, 10, 10);
-        gc.setFill(Color.BLACK);
+        gc.setFill(Color.BLACK);*/
     }
 }

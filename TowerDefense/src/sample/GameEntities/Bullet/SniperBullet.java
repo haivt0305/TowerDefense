@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
+import sample.Config;
 import sample.GameEntities.Tower.BaseTower;
 
 public class SniperBullet extends BaseBullet {
@@ -18,8 +19,8 @@ public class SniperBullet extends BaseBullet {
         iCenter = i + 32;
         jCenter = j + 32;
         this.owner = owner;
-        damage = 3;
-        speed = 20;
+        damage = Config.SNIPER_BULLET_DAMAGE;
+        speed = Config.SNIPER_BULLET_SPEED;
         this.rota = rota;
 
 

@@ -27,9 +27,9 @@ public class SmallerEnemy extends BaseEnemy {
         iCenter = x * Config.tileScale + widthImg / 2;
         jCenter = y * Config.tileScale + heightImg / 2;
 
-        enemyHealth = 5;
-        coin = 50;
-        speed = 5;
+        enemyHealth = Config.SMALLER_ENEMY_MAX_HEALTH;
+        coin = Config.NORMAL_ENEMY_REWARD_COINS;
+        speed = Config.SMALLER_ENEMY_SPEED;
         direction = Direction.RIGHT;
     }
 
@@ -50,14 +50,14 @@ public class SmallerEnemy extends BaseEnemy {
         gc.drawImage(pedestal, i, j);
         //gc.drawImage(gun, i, j);
 
-        gc.setFill(Color.BLACK);
+       /* gc.setFill(Color.BLACK);
         gc.fillOval(i - 5, j - 5, 10, 10);
         gc.setFill(Color.RED);
-        gc.fillOval(iCenter - 5, jCenter - 5,10, 10);
+        gc.fillOval(iCenter - 5, jCenter - 5,10, 10);*/
         gc.setFill(Color.RED);
         gc.fillRect(i, j - 5, widthImg, 5);
         gc.setFill(Color.GREEN);
-        gc.fillRect(i, j - 5, (double) (widthImg) * this.enemyHealth / 5, 5);
+        gc.fillRect(i, j - 5, (double) (widthImg) * this.enemyHealth / 70, 5);
         gc.setFill(Color.BLACK);
         gc.setStroke(Color.BLACK);
         gc.strokeRect(i,j-5,widthImg,5);

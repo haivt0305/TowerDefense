@@ -13,38 +13,35 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-import org.xml.sax.SAXParseException;
 import sample.GameEntities.*;
 import sample.GameEntities.Map;
-import sample.GameEntities.Tower.MachineGunTower;
-import sample.GameEntities.Tower.NormalTower;
+import sample.GameEntities.Obstacles.BigBush;
+import sample.GameEntities.Obstacles.BigRock;
+import sample.GameEntities.Obstacles.SmallBush;
+import sample.GameEntities.Obstacles.SmallRock;
 import sample.GameEntities.Spawner;
 import sample.GameEntities.MovableObject;
 import sample.GameEntities.ImmovableObject;
 import sample.GameEntities.PlayerHealth;
 import sample.GameEntities.Coin;
-import sample.GameEntities.Tower.SniperTower;
-import sample.Time;
 
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.List;
-import java.util.*;
 
 
 public class Main extends Application {
 
     public static GraphicsContext gc;
-    public static Time time = new Time();
+    public static Tick tick = new Tick();
     public static AnimationTimer timer;
     public static Coin coin = new Coin(300);
-    public static PlayerHealth playerHealth = new PlayerHealth(20);
+    public static PlayerHealth playerHealth = new PlayerHealth(1);
     public static Group root = new Group();
     public static Scene scene = new Scene(root);
     public static List<MovableObject> movableObjects = new ArrayList<>();
     public static List<ImmovableObject> immovableObjects = new ArrayList<>();
     public static Spawner spawner = new Spawner(10, 10, 100);
-    //public static Level level = new Level();
     public static Shop shop = new Shop();
 
     public static void main(String[] args) {
@@ -99,15 +96,17 @@ public class Main extends Application {
                 timer.start();
             }
         });
-        immovableObjects.add(time);
+        immovableObjects.add(tick);
         immovableObjects.add(coin);
         immovableObjects.add(playerHealth);
         immovableObjects.add(shop);
 
+        immovableObjects.add(new BigRock(17, 5));
+        immovableObjects.add(new SmallRock(17, 3));
+        immovableObjects.add(new BigBush(15, 5));
+        immovableObjects.add(new SmallBush(15, 3));
+
         movableObjects.add(spawner);
-        //movableObjects.add(new NormalTower(5, 7));
-        //movableObjects.add(new MachineGunTower(1,6));
-        //movableObjects.add(new SniperTower(3,3));
         root.getChildren().add(button);
 
 
@@ -122,9 +121,8 @@ public class Main extends Application {
 
     public static void render() {
         Map.drawMap(gc);
-        Road.drawPoint(gc);
+        //Road.drawPoint(gc);
         movableObjects.forEach(g -> g.render(gc));
         immovableObjects.forEach(g -> g.render(gc));
-
     }
 }

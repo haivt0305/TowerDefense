@@ -3,11 +3,10 @@ package sample.GameEntities;
 import javafx.scene.canvas.GraphicsContext;
 import sample.Config;
 import sample.GameEntities.Enemy.*;
-import sample.GameEntities.MovableObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 import static sample.Main.*;
 
 public class Spawner extends MovableObject {
@@ -39,7 +38,7 @@ public class Spawner extends MovableObject {
             creatingTime = 30;
             delay = 20;
             for (int n = 0; n < number; n++) {
-                if (time.getTime() == creatingTime + delay * n) {
+                if (tick.getTick() == creatingTime + delay * n) {
                     enemies.add(new NormalEnemy(-1,8));
                 }
             }
@@ -49,7 +48,7 @@ public class Spawner extends MovableObject {
 
             delay=20;
             for (int n = 0; n < number; n++) {
-                if (time.getTime() == creatingTime + delay * n) {
+                if (tick.getTick() == creatingTime + delay * n) {
 
                     enemies.add(new SmallerEnemy(-1, 8));
                 }
@@ -60,7 +59,7 @@ public class Spawner extends MovableObject {
 
             delay=20;
             for (int n = 0; n < number; n++) {
-                if (time.getTime() == creatingTime + delay * n) {
+                if (tick.getTick() == creatingTime + delay * n) {
                     if(check) {
                         check= false;
                         enemies.add(new SmallerEnemy(-1, 8));
@@ -77,7 +76,7 @@ public class Spawner extends MovableObject {
             number=3;
             delay=20;
             for (int n = 0; n < number; n++) {
-                if (time.getTime() == creatingTime + delay * n) {
+                if (tick.getTick() == creatingTime + delay * n) {
 
                     enemies.add(new TankerEnemy(-1, 8));
                 }
@@ -87,7 +86,7 @@ public class Spawner extends MovableObject {
             number=1;
             delay=0;
             for (int n = 0; n < number; n++) {
-                if (time.getTime() == creatingTime + delay * n) {
+                if (tick.getTick() == creatingTime + delay * n) {
 
                     enemies.add(new BossEnemy(-1, 8));
                 }
@@ -99,8 +98,8 @@ public class Spawner extends MovableObject {
     public void update() {
         LV(index);
 
-        if(enemies.isEmpty() && time.getTime() >= creatingTime) {
-            creatingTime = time.getTime() + 1;
+        if(enemies.isEmpty() && tick.getTick() >= creatingTime) {
+            creatingTime = tick.getTick() + 1;
             index ++;
         }
         enemies.forEach(BaseEnemy::update);

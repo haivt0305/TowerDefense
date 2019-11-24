@@ -2,6 +2,7 @@ package sample.GameEntities.Bullet;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import sample.Config;
 import sample.GameEntities.Tower.BaseTower;
 
 public class NormalBullet extends BaseBullet {
@@ -13,8 +14,8 @@ public class NormalBullet extends BaseBullet {
         iCenter = i + 32;
         jCenter = j + 32;
         this.owner = owner;
-        damage = 3;
-        speed = 20;
+        damage = Config.NORMAL_BULLET_DAMAGE;
+        speed = Config.NORMAL_BULLET_SPEED;
         this.rota = rota;
 
 

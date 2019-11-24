@@ -21,9 +21,10 @@ public class NormalTower extends BaseTower {
         j = y * Config.tileScale;
         iCenter = x * Config.tileScale + 32;
         jCenter = y * Config.tileScale + 32;
-        damage = 3;
-        fireRate = 20;
-        fireRange = 3.52;
+        damage = Config.NORMAL_BULLET_DAMAGE;
+        fireRate = Config.NORMAL_TOWER_FIRE_RATE;
+        fireRange = Config.NORMAL_TOWER_RANGE;
+        price = Config.NORMAL_TOWER_PRICE;
         this.timeShot = 0;
         this.rota = 0;
         gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile203.png");
@@ -44,15 +45,15 @@ public class NormalTower extends BaseTower {
         //gc.fillOval(i - fireRange * Config.tileScale + 32,j - fireRange * Config.tileScale + 32,fireRange * Config.tileScale * 2,fireRange * Config.tileScale * 2);
 
         bullets.forEach(g->g.render(gc));
-        gc.setStroke(Color.GREENYELLOW);
+        gc.setStroke(Color.RED);
         gc.strokeOval(i - fireRange * Config.tileScale + 32, j - fireRange * Config.tileScale + 32, fireRange * Config.tileScale * 2, fireRange * Config.tileScale * 2);
         gc.drawImage(pedestal, i, j);
         gc.drawImage(gun, i, j);
 
-        gc.setFill(javafx.scene.paint.Color.BLACK);
+        /*gc.setFill(javafx.scene.paint.Color.BLACK);
         gc.fillOval(i - 5, j - 5, 10, 10);
         gc.setFill(javafx.scene.paint.Color.RED);
         gc.fillOval(iCenter - 5,jCenter - 5, 10, 10);
-        gc.setFill(Color.BLACK);
+        gc.setFill(Color.BLACK);*/
     }
 }

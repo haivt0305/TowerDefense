@@ -12,8 +12,6 @@ import sample.GameEntities.Tower.NormalTower;
 import sample.GameEntities.Tower.SniperTower;
 import sample.Main;
 
-import java.awt.*;
-
 public class Shop extends ImmovableObject {
     public static Image normalTower;
     public static Image machineGunTower;
@@ -32,16 +30,16 @@ public class Shop extends ImmovableObject {
         machineGunTower = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile250.png");
         sniperTower = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile249.png");
 
-        normal=new ImageView(normalTower);
+        normal = new ImageView(normalTower);
         normal.setX(3 * Config.tileScale);
         normal.setY(10 * Config.tileScale);
 
-        machineGun=new ImageView(machineGunTower);
-        machineGun.setX(4 * Config.tileScale);
-        machineGun.setY(10*Config.tileScale);
+        machineGun = new ImageView(machineGunTower);
+        machineGun.setX(5 * Config.tileScale);
+        machineGun.setY(10 * Config.tileScale);
 
-        sniper=new ImageView(sniperTower);
-        sniper.setX(5 * Config.tileScale);
+        sniper = new ImageView(sniperTower);
+        sniper.setX(7 * Config.tileScale);
         sniper.setY(10 * Config.tileScale);
 
         clickedNormal=false;
@@ -83,9 +81,9 @@ public class Shop extends ImmovableObject {
                 int newX= (int) ((((ImageView)(mouseEvent.getSource())).getX()+((ImageView)(mouseEvent.getSource())).getTranslateX()+32)/Config.tileScale);
                 int newY= (int) ((((ImageView)(mouseEvent.getSource())).getY()+((ImageView)(mouseEvent.getSource())).getTranslateY()+32)/Config.tileScale);
                 System.out.println(newX+" "+newY);
-                if(Map.map_block[newX][newY]==0 && 50 <= Main.coin.getCoin()) {
+                if(Map.map_block[newX][newY]==0 && 20 <= Main.coin.getCoin()) {
                     Map.map_block[newX][newY]=1;
-                    Main.coin.setCoin(Main.coin.getCoin()-50);
+                    Main.coin.setCoin(Main.coin.getCoin()-20);
                     Main.movableObjects.add(new NormalTower(newX, newY));
                     //   Map.draw();
                     System.out.println("placed");
@@ -182,9 +180,9 @@ public class Shop extends ImmovableObject {
                 int newX= (int) ((((ImageView)(mouseEvent.getSource())).getX()+((ImageView)(mouseEvent.getSource())).getTranslateX()+32)/Config.tileScale);
                 int newY= (int) ((((ImageView)(mouseEvent.getSource())).getY()+((ImageView)(mouseEvent.getSource())).getTranslateY()+32)/Config.tileScale);
                 System.out.println(newX+" "+newY);
-                if(Map.map_block[newX][newY]==0 && 50 <= Main.coin.getCoin()) {
+                if(Map.map_block[newX][newY]==0 && 60 <= Main.coin.getCoin()) {
                     Map.map_block[newX][newY]=1;
-                    Main.coin.setCoin(Main.coin.getCoin()-50);
+                    Main.coin.setCoin(Main.coin.getCoin()-60);
                     Main.movableObjects.add(new SniperTower(newX, newY));
                     //   Map.draw();
                     System.out.println("placed");
@@ -198,21 +196,23 @@ public class Shop extends ImmovableObject {
     @Override
     public void render(GraphicsContext gc) {
         gc.drawImage(normalTower,3* Config.tileScale,10* Config.tileScale);
-        gc.drawImage(machineGunTower,4*Config.tileScale,10*Config.tileScale);
-        gc.drawImage(sniperTower,5* Config.tileScale,10* Config.tileScale);
+        gc.drawImage(machineGunTower,5*Config.tileScale,10*Config.tileScale);
+        gc.drawImage(sniperTower,7* Config.tileScale,10* Config.tileScale);
 
-        gc.fillText("300$",3* Config.tileScale,11* Config.tileScale +32);
-        gc.fillText("500$",4* Config.tileScale,11* Config.tileScale +32);
-        gc.fillText("700$",5* Config.tileScale,11* Config.tileScale +32);
+        gc.setFill(Color.YELLOW);
+        gc.fillText("20$",3* Config.tileScale + 5,11* Config.tileScale + 35);
+        gc.setFill(Color.YELLOW);
+        gc.fillText("50$",5* Config.tileScale + 5,11* Config.tileScale + 35);
+        gc.setFill(Color.YELLOW);
+        gc.fillText("60$",7* Config.tileScale + 5,11* Config.tileScale + 35);
 
-        gc.setStroke(Color.BLACK);
-        if(clickedNormal) gc.strokeRect(3*Config.tileScale,10*Config.tileScale,2*Config.tileScale,Config.tileScale);
-        else if(clickedMachineGun) gc.strokeRect(4*Config.tileScale,10*Config.tileScale,2*Config.tileScale,Config.tileScale);
-        else if(clickedSniper) gc.strokeRect(5*Config.tileScale,10*Config.tileScale,2*Config.tileScale,Config.tileScale);
+        //gc.setStroke(Color.WHITE);
+        if(clickedNormal) gc.strokeRect(3*Config.tileScale, 10*Config.tileScale, Config.tileScale, Config.tileScale * 2 + 10);
+        else if(clickedMachineGun) gc.strokeRect(5*Config.tileScale, 10*Config.tileScale, Config.tileScale, Config.tileScale * 2);
+        else if(clickedSniper) gc.strokeRect(7*Config.tileScale, 10*Config.tileScale, Config.tileScale, Config.tileScale * 2);
     }
 
     @Override
     public void update() {
-
     }
 }

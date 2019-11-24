@@ -33,29 +33,4 @@ public class Map {
             }
         }
     }
-
-    public static void autoDrawMap(){
-        //    System.out.println(map_block.length);//16
-        //    System.out.println(map_block[1].length);//12
-        //   System.out.println(MAP_SPRITES.length);//12
-        //    System.out.println(MAP_SPRITES[0].length);//16
-
-        for (int j = 0; j < map_block[1].length; j++) {//12
-            for (int i = 0; i < map_block.length; i++) {//16
-                if(MAP_SPRITES[j][i]=="129") map_block[i][j]=1;
-                else map_block[i][j]=1;
-                //  System.out.print(map_block[i][j]);
-            }
-            //   System.out.println();
-        }
-    }
-    public static void draw(){
-        for (int j = 0; j < map_block[1].length; j++) {
-            for (int i = 0; i < map_block.length; i++) {
-
-                System.out.print(map_block[i][j]);
-            }
-            System.out.println();
-        }
-    }
 }
