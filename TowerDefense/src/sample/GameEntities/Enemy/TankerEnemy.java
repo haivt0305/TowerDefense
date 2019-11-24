@@ -27,7 +27,7 @@ public class TankerEnemy extends BaseEnemy {
         iCenter = x * Config.tileScale + widthImg / 2;
         jCenter = y * Config.tileScale + heightImg / 2;
 
-        enemyHealth = Config.TANKER_ENEMY_MAX_HEALTH;
+        enemyHealth = Config.TANKER_ENEMY_HEALTH;
         coin = Config.TANKER_ENEMY_REWARD_COINS;
         speed = Config.TANKER_ENEMY_SPEED;
         direction = Direction.RIGHT;

@@ -7,21 +7,25 @@ public class Config {
 
     static final public int tileWidth = 20;
 
+    /* ENEMY */
+
     public static final double NORMAL_ENEMY_HEALTH = 100;
     public static final double NORMAL_ENEMY_SPEED = 5;
     public static final int NORMAL_ENEMY_REWARD_COINS = 5;
 
-    public static final double TANKER_ENEMY_MAX_HEALTH = 500;
-    public static final double TANKER_ENEMY_SPEED = 3.5;
-    public static final int TANKER_ENEMY_REWARD_COINS = 10;
-
-    public static final double SMALLER_ENEMY_MAX_HEALTH = 70;
+    public static final double SMALLER_ENEMY_HEALTH = 70;
     public static final double SMALLER_ENEMY_SPEED = 8;
     public static final int SMALLER_ENEMY_REWARD_COINS = 3;
 
-    public static final double BOSS_ENEMY_MAX_HEALTH = 1352;
+    public static final double TANKER_ENEMY_HEALTH = 500;
+    public static final double TANKER_ENEMY_SPEED = 3.5;
+    public static final int TANKER_ENEMY_REWARD_COINS = 10;
+
+    public static final double BOSS_ENEMY_HEALTH = 1352;
     public static final double BOSS_ENEMY_SPEED = 3.5;
     public static final int BOSS_ENEMY_REWARD_COINS = 350;
+
+    /* BULLET */
 
     public static final long NORMAL_BULLET_DAMAGE = 30;
     public static final double NORMAL_BULLET_SPEED = 25;
@@ -31,6 +35,8 @@ public class Config {
 
     public static final long SNIPER_BULLET_DAMAGE = 100;
     public static final double SNIPER_BULLET_SPEED = 45;
+
+    /* TOWER */
 
     public static final long NORMAL_TOWER_FIRE_RATE = 10;
     public static final double NORMAL_TOWER_RANGE = 3;

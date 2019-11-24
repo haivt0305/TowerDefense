@@ -27,7 +27,7 @@ public class BossEnemy extends BaseEnemy {
         iCenter = x * Config.tileScale + widthImg / 2;
         jCenter = y * Config.tileScale + heightImg / 2;
 
-        enemyHealth = Config.BOSS_ENEMY_MAX_HEALTH;
+        enemyHealth = Config.BOSS_ENEMY_HEALTH;
         coin = Config.BOSS_ENEMY_REWARD_COINS;
         speed = Config.BOSS_ENEMY_SPEED;
         direction = Direction.RIGHT;

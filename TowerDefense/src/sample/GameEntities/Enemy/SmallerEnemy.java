@@ -27,8 +27,8 @@ public class SmallerEnemy extends BaseEnemy {
         iCenter = x * Config.tileScale + widthImg / 2;
         jCenter = y * Config.tileScale + heightImg / 2;
 
-        enemyHealth = Config.SMALLER_ENEMY_MAX_HEALTH;
-        coin = Config.NORMAL_ENEMY_REWARD_COINS;
+        enemyHealth = Config.SMALLER_ENEMY_HEALTH;
+        coin = Config.SMALLER_ENEMY_REWARD_COINS;
         speed = Config.SMALLER_ENEMY_SPEED;
         direction = Direction.RIGHT;
     }
