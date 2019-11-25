@@ -6,14 +6,14 @@ import sample.GameEntities.Enemy.BaseEnemy;
 import sample.GameEntities.Tower.BaseTower;
 import sample.Point;
 
-
 import static sample.Main.spawner;
 
 public abstract class BaseBullet extends MovableObject {
-    public double speed;
 
-    public double damage;
-    public double rota;
+
+    double damage;
+    double speed;
+    double rota;
     BaseTower owner;
 
     public boolean isInHitBox(BaseEnemy enemy) {
