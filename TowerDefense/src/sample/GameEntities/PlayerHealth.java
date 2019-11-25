@@ -8,6 +8,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import sample.Config;
+import sample.Music;
 
 import static sample.Main.*;
 
@@ -49,6 +50,9 @@ public class PlayerHealth extends ImmovableObject {
             gameover.setTranslateY(Config.tileHeight * Config.tileScale - 600);
 
             timer.stop();
+
+            Music.bgMediaPlayer.stop();
+            Music.gameoverMediaPlayer.play();
 
             root.getChildren().add(gameover);
 

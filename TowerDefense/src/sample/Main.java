@@ -109,6 +109,7 @@ public class Main extends Application {
         movableObjects.add(spawner);
         root.getChildren().add(button);
 
+        Music.bgMediaPlayer.play();
 
         stage.setScene(scene);
         stage.show();

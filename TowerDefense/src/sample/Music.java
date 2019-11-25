@@ -6,17 +6,17 @@ import javafx.scene.media.MediaPlayer;
 import java.io.File;
 
 public class Music {
-    String bg = "bg.mp3";
-    Media bgMedia = new Media(new File(bg).toURI().toString());
-    MediaPlayer bgMediaPlayer = new MediaPlayer(bgMedia);
+    public static String bg = "bg.mp3";
+    public static Media bgMedia = new Media(new File(bg).toURI().toString());
+    public static MediaPlayer bgMediaPlayer = new MediaPlayer(bgMedia);
 
-    String shootingsound = "shootingsound.mp3";
-    Media shootingsoundMedia = new Media(new File(shootingsound).toURI().toString());
-    MediaPlayer shootingsoundPlayer = new MediaPlayer(shootingsoundMedia);
+    public static String shooting = "shooting.mp3";
+    public static Media shootingMedia = new Media(new File(shooting).toURI().toString());
+    public static MediaPlayer shootingMediaPlayer = new MediaPlayer(shootingMedia);
 
-    String gameover = "gameover.mp3";
-    Media gameoverMedia = new Media(new File(gameover).toURI().toString());
-    MediaPlayer gameoverPlayer = new MediaPlayer(gameoverMedia);
+    public static String gameover = "gameover.mp3";
+    public static Media gameoverMedia = new Media(new File(gameover).toURI().toString());
+    public static MediaPlayer gameoverMediaPlayer = new MediaPlayer(gameoverMedia);
 
     public void Music() {}
 

@@ -1,10 +1,12 @@
 package sample.GameEntities.Tower;
 
+import javafx.scene.media.MediaPlayer;
 import sample.Config;
 import sample.GameEntities.Bullet.BaseBullet;
 import sample.GameEntities.Bullet.NormalBullet;
 import sample.GameEntities.Enemy.BaseEnemy;
 import sample.GameEntities.MovableObject;
+import sample.Music;
 import sample.Point;
 import sample.Rotation;
 
@@ -38,6 +40,9 @@ public abstract class BaseTower extends MovableObject {
                 if(tick.getTick() >= timeShot + fireRate) {
                     bullets.add(new NormalBullet(this.i, this.j, this.rota, this));
                     timeShot= tick.getTick();
+
+                    MediaPlayer shooting = new MediaPlayer(Music.shootingMedia);
+                    shooting.play();
 
                 }
                 break;
