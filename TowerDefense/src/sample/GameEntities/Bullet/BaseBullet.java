@@ -9,8 +9,7 @@ import sample.Point;
 import static sample.Main.spawner;
 
 public abstract class BaseBullet extends MovableObject {
-
-    BaseTower owner;
+    BaseTower tower;
     double damage;
     double speed;
     double rota;
@@ -22,8 +21,8 @@ public abstract class BaseBullet extends MovableObject {
         return false;
     }
 
-    public boolean outRange() {
-        if(Point.distance(i, j, owner.i, owner.j) + speed >= owner.getFireRange() * Config.tileScale) {
+    public boolean notInRange() {
+        if(Point.distance(i, j, tower.i, tower.j) + speed >= tower.getFireRange() * Config.tileScale) {
             return true;
         }
         return false;
@@ -31,8 +30,7 @@ public abstract class BaseBullet extends MovableObject {
 
     @Override
     public void update() {
-
-        if(rota <= 90)   {
+        if(rota <= 90) {
             i = (int) (i + speed * Math.sin(rota / 180 * Math.PI));
             j = (int) (j - speed * Math.cos(rota / 180 * Math.PI));
         }
@@ -46,21 +44,21 @@ public abstract class BaseBullet extends MovableObject {
         }
         else {
             i = (int) (i - speed * Math.cos((rota - 270) / 180 * Math.PI));
-            j = (int) (j - speed * Math.sin((rota - 270) / 180 *Math.PI));
+            j = (int) (j - speed * Math.sin((rota - 270) / 180 * Math.PI));
         }
         iCenter = i + 32;
         jCenter = j + 32;
 
+        if(this.notInRange()) {
+            tower.bullets.remove(this);
+        }
+
         for (BaseEnemy e: spawner.enemies) {
             if (this.inRange(e)) {
                 e.enemyHealth = e.enemyHealth - this.damage;
-                owner.bullets.remove(this);
+                tower.bullets.remove(this);
                 break;
             }
-        }
-
-        if(this.outRange()) {
-            owner.bullets.remove(this);
         }
     }
 }

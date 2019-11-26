@@ -31,12 +31,11 @@ import java.util.List;
 
 
 public class Main extends Application {
-
     public static GraphicsContext gc;
     public static Tick tick = new Tick();
     public static AnimationTimer timer;
     public static Coin coin = new Coin(300);
-    public static PlayerHealth playerHealth = new PlayerHealth(1);
+    public static PlayerHealth playerHealth = new PlayerHealth(20);
     public static Group root = new Group();
     public static Scene scene = new Scene(root);
     public static List<MovableObject> movableObjects = new ArrayList<>();
@@ -67,7 +66,6 @@ public class Main extends Application {
         imageView_menu.setFitWidth(Config.tileWidth * Config.tileScale);
         root.getChildren().add(imageView_menu);
 
-
         Button button = new Button("", imageView_start_button);
         button.setWrapText(true);
         button.setTranslateX(Config.tileWidth * Config.tileScale - 780);
@@ -76,11 +74,10 @@ public class Main extends Application {
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-
                 root.getChildren().removeAll(imageView_menu, button);
-                root.getChildren().add(Shop.normal);
-                root.getChildren().add(Shop.machineGun);
-                root.getChildren().add(Shop.sniper);
+                root.getChildren().add(Shop.normalTowerImgView);
+                root.getChildren().add(Shop.machineGunImgView);
+                root.getChildren().add(Shop.sniperTowerImgView);
 
                 timer = new AnimationTimer() {
                     @Override
@@ -122,7 +119,6 @@ public class Main extends Application {
 
     public static void render() {
         Map.drawMap(gc);
-        //Road.drawPoint(gc);
         movableObjects.forEach(g -> g.render(gc));
         immovableObjects.forEach(g -> g.render(gc));
     }

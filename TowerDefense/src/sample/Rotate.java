@@ -1,13 +1,13 @@
 package sample;
 
-public class Rotation {
+public class Rotate {
 
-    double rota;
-    public Rotation() {
+    double rotate;
+    public Rotate() {
 
     }
-    public Rotation(double rota) {
-        this.rota = rota;
+    public Rotate(double rotate) {
+        this.rotate = rotate;
     }
 
     public static double degree(int x1, int y1, int x2, int y2) {

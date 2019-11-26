@@ -8,26 +8,20 @@ import sample.*;
 import javafx.scene.image.Image;
 
 public class TankerEnemy extends BaseEnemy {
-
     Image gun;
     Image base;
 
     public TankerEnemy(int x, int y) {
         this.x = x;
         this.y = y;
-
         gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile291.png");
         base = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile268.png");
-
         i = x * Config.tileScale;
         j = y * Config.tileScale;
-
         widthImg = (int) base.getWidth();
         heightImg = (int) base.getHeight();
-
         iCenter = x * Config.tileScale + widthImg / 2;
         jCenter = y * Config.tileScale + heightImg / 2;
-
         enemyHealth = Config.TANKER_ENEMY_HEALTH;
         coin = Config.TANKER_ENEMY_REWARD_COINS;
         speed = Config.TANKER_ENEMY_SPEED;
@@ -40,7 +34,6 @@ public class TankerEnemy extends BaseEnemy {
         snapshotParameters.setFill(Color.TRANSPARENT);
         ImageView gunImgView = new ImageView(gun);
         ImageView baseImgView = new ImageView(base);
-
 
         gunImgView.setRotate(this.direction.getDegree());
         baseImgView.setRotate(this.direction.getDegree());

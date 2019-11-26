@@ -10,9 +10,17 @@ public class Music {
     public static Media bgMedia = new Media(new File(bg).toURI().toString());
     public static MediaPlayer bgMediaPlayer = new MediaPlayer(bgMedia);
 
-    public static String shooting = "shooting.mp3";
-    public static Media shootingMedia = new Media(new File(shooting).toURI().toString());
-    public static MediaPlayer shootingMediaPlayer = new MediaPlayer(shootingMedia);
+    public static String normal = "normal.mp3";
+    public static Media normalMedia = new Media(new File(normal).toURI().toString());
+    public static MediaPlayer normalMediaPlayer = new MediaPlayer(normalMedia);
+
+    public static String machine = "machine.mp3";
+    public static Media machineMedia = new Media(new File(machine).toURI().toString());
+    public static MediaPlayer machineMediaPlayer = new MediaPlayer(machineMedia);
+
+    public static String sniper = "sniper.mp3";
+    public static Media sniperMedia = new Media(new File(sniper).toURI().toString());
+    public static MediaPlayer sniperMediaPlayer = new MediaPlayer(sniperMedia);
 
     public static String gameover = "gameover.mp3";
     public static Media gameoverMedia = new Media(new File(gameover).toURI().toString());

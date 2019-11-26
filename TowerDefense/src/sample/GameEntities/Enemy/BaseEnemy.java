@@ -9,10 +9,9 @@ import sample.*;
 import static sample.Main.spawner;
 
 public abstract class BaseEnemy extends MovableObject {
-
     public double enemyHealth;
-    int coin;
     double speed;
+    int coin;
     Direction direction;
     public int widthImg;
     public int heightImg;

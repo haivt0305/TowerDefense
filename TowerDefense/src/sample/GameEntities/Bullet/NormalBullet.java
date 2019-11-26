@@ -6,28 +6,22 @@ import sample.Config;
 import sample.GameEntities.Tower.BaseTower;
 
 public class NormalBullet extends BaseBullet {
+    Image bullet;
 
-    Image normalBullet;
-
-    public NormalBullet(int i, int j, double rota, BaseTower owner){
+    public NormalBullet(int i, int j, double rota, BaseTower tower){
         this.i = i;
         this.j = j;
         iCenter = i + 32;
         jCenter = j + 32;
-        this.owner = owner;
+        this.tower = tower;
         damage = Config.NORMAL_BULLET_DAMAGE;
         speed = Config.NORMAL_BULLET_SPEED;
         this.rota = rota;
-        normalBullet = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile275.png") ;
+        bullet = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile275.png") ;
     }
 
     @Override
     public void render(GraphicsContext gc) {
-        gc.drawImage(normalBullet, i, j);
-    }
-
-    @Override
-    public void update() {
-
+        gc.drawImage(bullet, i, j);
     }
 }

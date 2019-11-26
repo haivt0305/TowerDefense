@@ -4,8 +4,8 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.GraphicsContext;
 
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
-import javafx.scene.transform.Rotate;
 import sample.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,7 +17,6 @@ import static sample.Main.spawner;
 import static sample.Main.tick;
 
 public class SniperTower extends BaseTower {
-
     Image gun;
     Image base;
 
@@ -36,30 +35,31 @@ public class SniperTower extends BaseTower {
         this.rota = 0;
         gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile249.png");
         base = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile183.png");
-
     }
 
-    /*@Override
+    @Override
     public void update() {
         for (BaseEnemy a : spawner.enemies) {
-            if (this.enemyInRange(a)) {
-                this.rota = Rotation.degree(this.iCenter, this.jCenter, a.iCenter, a.jCenter);
+            if (this.shooting(a)) {
+                this.rota = Rotate.degree(this.iCenter, this.jCenter, a.iCenter, a.jCenter);
                 if (tick.getTick() >= timeShot + fireRate) {
                     bullets.add(new SniperBullet(this.i, this.j, this.rota, this));
                     timeShot = tick.getTick();
+                    MediaPlayer sniper = new MediaPlayer(Music.sniperMedia);
+                    sniper.play();
                 }
                 break;
             }
         }
         bullets.forEach(BaseBullet::update);
-    }*/
+    }
 
     public void render(GraphicsContext gc) {
         ImageView gunImgView = new ImageView(gun);
         SnapshotParameters snapshotParameters = new SnapshotParameters();
 
         snapshotParameters.setFill(Color.TRANSPARENT);
-        snapshotParameters.setTransform(new Rotate(this.rota, 32, 32));
+        snapshotParameters.setTransform(new javafx.scene.transform.Rotate(this.rota, 32, 32));
         snapshotParameters.setViewport(new Rectangle2D(0, 0, 64, 64));
 
         Image gun = gunImgView.snapshot(snapshotParameters,null);

@@ -10,7 +10,6 @@ import java.util.List;
 import static sample.Main.*;
 
 public class Spawner extends MovableObject {
-
     private int delay;
     public int creatingTime;
     private int number;
@@ -30,62 +29,40 @@ public class Spawner extends MovableObject {
         enemies.forEach(g -> g.render(gc));
     }
 
-    private void LV(int level) {
-        if (level == 1) {
+    private void Wave(int wave) {
+        if (wave == 1) {
             number = 7;
             creatingTime = 30;
             delay = 20;
             for (int n = 0; n < number; n++) {
                 if (tick.getTick() == creatingTime + delay * n) {
-                    enemies.add(new NormalEnemy(-1,8));
+                    enemies.add(new NormalEnemy(-1, 8));
                 }
             }
         }
-        else if (level == 2) {
+        else if (wave == 2) {
             number=10;
-
             delay=20;
-            for (int n = 0; n < number; n++) {
+            for (int n = 0; n < number; n ++) {
                 if (tick.getTick() == creatingTime + delay * n) {
-
                     enemies.add(new SmallerEnemy(-1, 8));
                 }
             }
         }
-        else if (level == 3){
-            number=20;
-
-            delay=20;
+        else if(wave == 3){
+            number = 3;
+            delay = 20;
             for (int n = 0; n < number; n++) {
                 if (tick.getTick() == creatingTime + delay * n) {
-                    if(check) {
-                        check= false;
-                        enemies.add(new SmallerEnemy(-1, 8));
-                    }
-                    else {
-                        check=true;
-                        enemies.add(new NormalEnemy(-1,8));
-                    }
-
-                }
-            }
-        }
-        else if(level == 4){
-            number=3;
-            delay=20;
-            for (int n = 0; n < number; n++) {
-                if (tick.getTick() == creatingTime + delay * n) {
-
                     enemies.add(new TankerEnemy(-1, 8));
                 }
             }
         }
-        else if(level ==5){
-            number=1;
-            delay=0;
+        else if(wave == 4){
+            number = 1;
+            delay = 0;
             for (int n = 0; n < number; n++) {
                 if (tick.getTick() == creatingTime + delay * n) {
-
                     enemies.add(new BossEnemy(-1, 8));
                 }
             }
@@ -94,14 +71,12 @@ public class Spawner extends MovableObject {
 
     @Override
     public void update() {
-        LV(index);
-
+        Wave(index);
         if(enemies.isEmpty() && tick.getTick() >= creatingTime) {
             creatingTime = tick.getTick() + 1;
             index ++;
         }
         enemies.forEach(BaseEnemy::update);
-
     }
 }
 

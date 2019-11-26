@@ -1,7 +1,5 @@
 package sample.GameEntities;
 
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.shape.Circle;
 import sample.Config;
 import sample.Point;
 

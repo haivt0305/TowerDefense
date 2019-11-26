@@ -8,24 +8,18 @@ import sample.*;
 import javafx.scene.image.Image;
 
 public class NormalEnemy extends BaseEnemy {
-
     Image enemy;
 
     public NormalEnemy(int x, int y) {
         this.x = x;
         this.y = y;
-
         enemy = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile245.png");
-
         i = x * Config.tileScale;
         j = y * Config.tileScale;
-
         widthImg = (int) enemy.getWidth();
         heightImg = (int) enemy.getHeight();
-
         iCenter = x * Config.tileScale + widthImg / 2;
         jCenter = y * Config.tileScale + heightImg / 2;
-
         enemyHealth = Config.NORMAL_ENEMY_HEALTH;
         coin = Config.NORMAL_ENEMY_REWARD_COINS;
         speed = Config.NORMAL_ENEMY_SPEED;

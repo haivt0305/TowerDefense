@@ -8,24 +8,18 @@ import sample.*;
 import javafx.scene.image.Image;
 
 public class SmallerEnemy extends BaseEnemy {
-
     Image enemy;
 
     public SmallerEnemy(int x, int y) {
         this.x = x;
         this.y = y;
-
         enemy = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile246.png");
-
         i = x * Config.tileScale;
         j = y * Config.tileScale;
-
         widthImg = (int) enemy.getWidth();
         heightImg = (int) enemy.getHeight();
-
         iCenter = x * Config.tileScale + widthImg / 2;
         jCenter = y * Config.tileScale + heightImg / 2;
-
         enemyHealth = Config.SMALLER_ENEMY_HEALTH;
         coin = Config.SMALLER_ENEMY_REWARD_COINS;
         speed = Config.SMALLER_ENEMY_SPEED;
@@ -37,7 +31,6 @@ public class SmallerEnemy extends BaseEnemy {
         SnapshotParameters snapshotParameters = new SnapshotParameters();
         snapshotParameters.setFill(Color.TRANSPARENT);
         ImageView enemyImgView = new ImageView(enemy);
-
 
         enemyImgView.setRotate(this.direction.getDegree());
 

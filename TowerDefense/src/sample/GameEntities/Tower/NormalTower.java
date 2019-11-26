@@ -4,14 +4,19 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.GraphicsContext;
 
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
-import javafx.scene.transform.Rotate;
 import sample.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import sample.GameEntities.Bullet.BaseBullet;
+import sample.GameEntities.Bullet.NormalBullet;
+import sample.GameEntities.Enemy.BaseEnemy;
+
+import static sample.Main.spawner;
+import static sample.Main.tick;
 
 public class NormalTower extends BaseTower {
-
     Image gun;
     Image base;
 
@@ -32,12 +37,29 @@ public class NormalTower extends BaseTower {
         base = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile180.png");
     }
 
+    @Override
+    public void update() {
+        for(BaseEnemy a: spawner.enemies) {
+            if(this.shooting(a)) {
+                this.rota = Rotate.degree(this.iCenter,this.jCenter,((BaseEnemy) a).iCenter,((BaseEnemy) a).jCenter);
+                if(tick.getTick() >= timeShot + fireRate) {
+                    bullets.add(new NormalBullet(this.i, this.j, this.rota, this));
+                    timeShot= tick.getTick();
+                    MediaPlayer normal = new MediaPlayer(Music.normalMedia);
+                    normal.play();
+                }
+                break;
+            }
+        }
+        bullets.forEach(BaseBullet::update);
+    }
+
     public void render(GraphicsContext gc) {
         ImageView gunImgView = new ImageView(gun);
         SnapshotParameters snapshotParameters = new SnapshotParameters();
 
         snapshotParameters.setFill(Color.TRANSPARENT);
-        snapshotParameters.setTransform(new Rotate(this.rota, 32, 32));
+        snapshotParameters.setTransform(new javafx.scene.transform.Rotate(this.rota, 32, 32));
         snapshotParameters.setViewport(new Rectangle2D(0, 0, 64, 64));
 
         Image gun = gunImgView.snapshot(snapshotParameters,null);
