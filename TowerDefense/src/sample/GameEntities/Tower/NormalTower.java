@@ -11,8 +11,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class NormalTower extends BaseTower {
+
     Image gun;
-    Image pedestal;
+    Image base;
 
     public NormalTower(int x, int y) {
         this.x = x;
@@ -28,8 +29,7 @@ public class NormalTower extends BaseTower {
         this.timeShot = 0;
         this.rota = 0;
         gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile203.png");
-        pedestal = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile180.png");
-
+        base = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile180.png");
     }
 
     public void render(GraphicsContext gc) {
@@ -42,18 +42,10 @@ public class NormalTower extends BaseTower {
 
         Image gun = gunImgView.snapshot(snapshotParameters,null);
 
-        //gc.fillOval(i - fireRange * Config.tileScale + 32,j - fireRange * Config.tileScale + 32,fireRange * Config.tileScale * 2,fireRange * Config.tileScale * 2);
-
         bullets.forEach(g->g.render(gc));
         gc.setStroke(Color.RED);
         gc.strokeOval(i - fireRange * Config.tileScale + 32, j - fireRange * Config.tileScale + 32, fireRange * Config.tileScale * 2, fireRange * Config.tileScale * 2);
-        gc.drawImage(pedestal, i, j);
+        gc.drawImage(base, i, j);
         gc.drawImage(gun, i, j);
-
-        /*gc.setFill(javafx.scene.paint.Color.BLACK);
-        gc.fillOval(i - 5, j - 5, 10, 10);
-        gc.setFill(javafx.scene.paint.Color.RED);
-        gc.fillOval(iCenter - 5,jCenter - 5, 10, 10);
-        gc.setFill(Color.BLACK);*/
     }
 }

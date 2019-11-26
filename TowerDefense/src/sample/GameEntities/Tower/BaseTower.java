@@ -26,8 +26,8 @@ public abstract class BaseTower extends MovableObject {
 
     public List<BaseBullet> bullets = new ArrayList<>();
 
-    public boolean haveTarget(BaseEnemy enemy) {
-        if(Point.distance(this.iCenter, this.jCenter, enemy.iCenter, enemy.jCenter) <= this.fireRange * Config.tileScale){
+    public boolean enemyInRange(BaseEnemy enemy) {
+        if(Point.distance(this.iCenter, this.jCenter, enemy.iCenter, enemy.jCenter) <= this.fireRange * Config.tileScale) {
             return true;
         }
         return false;
@@ -35,22 +35,18 @@ public abstract class BaseTower extends MovableObject {
 
     public void update() {
         for(BaseEnemy a: spawner.enemies) {
-            if(this.haveTarget(a)) {
+            if(this.enemyInRange(a)) {
                 this.rota = Rotation.degree(this.iCenter,this.jCenter,((BaseEnemy) a).iCenter,((BaseEnemy) a).jCenter);
                 if(tick.getTick() >= timeShot + fireRate) {
                     bullets.add(new NormalBullet(this.i, this.j, this.rota, this));
                     timeShot= tick.getTick();
-
                     MediaPlayer shooting = new MediaPlayer(Music.shootingMedia);
                     shooting.play();
-
                 }
                 break;
-                //       }
             }
         }
         bullets.forEach(BaseBullet::update);
-
     }
 
     public double getFireRange() {

@@ -13,6 +13,7 @@ import sample.Music;
 import static sample.Main.*;
 
 public class PlayerHealth extends ImmovableObject {
+
     public int playerHealth;
 
     public PlayerHealth(int playerHealth) {
@@ -40,9 +41,7 @@ public class PlayerHealth extends ImmovableObject {
         gc.setFill(Color.RED);
         gc.setStroke(Color.BLACK);
         gc.fillText(toString(), i, j);
-
         if(playerHealth <= 0) {
-
             ImageView gameover = new ImageView(new Image("file:src/AssetsKit_2/GameOver.png"));
             gameover.setFitWidth(10 * Config.tileScale);
             gameover.setFitHeight(5 * Config.tileScale);
@@ -55,7 +54,6 @@ public class PlayerHealth extends ImmovableObject {
             Music.gameoverMediaPlayer.play();
 
             root.getChildren().add(gameover);
-
         }
     }
     @Override

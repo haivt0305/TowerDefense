@@ -10,20 +10,19 @@ import static sample.Main.spawner;
 
 public abstract class BaseBullet extends MovableObject {
 
-
+    BaseTower owner;
     double damage;
     double speed;
     double rota;
-    BaseTower owner;
 
-    public boolean isInHitBox(BaseEnemy enemy) {
-        if(iCenter <= enemy.i + enemy.widthImg && iCenter >= enemy.i && jCenter <= enemy.j + enemy.heightImg && jCenter >= enemy.j) {
+    public boolean inRange(BaseEnemy enemy) {
+        if((iCenter <= enemy.i + enemy.widthImg) && (iCenter >= enemy.i) && (jCenter <= enemy.j + enemy.heightImg) && (jCenter >= enemy.j)) {
             return true;
         }
         return false;
     }
 
-    public boolean isOutRange(){
+    public boolean outRange() {
         if(Point.distance(i, j, owner.i, owner.j) + speed >= owner.getFireRange() * Config.tileScale) {
             return true;
         }
@@ -32,17 +31,6 @@ public abstract class BaseBullet extends MovableObject {
 
     @Override
     public void update() {
-        if(this.isOutRange()) {
-            owner.bullets.remove(this);
-        }
-
-        for (BaseEnemy e: spawner.enemies) {
-            if (this.isInHitBox(e)) {
-                e.enemyHealth = e.enemyHealth - this.damage;
-                owner.bullets.remove(this);
-                break;
-            }
-        }
 
         if(rota <= 90)   {
             i = (int) (i + speed * Math.sin(rota / 180 * Math.PI));
@@ -60,9 +48,19 @@ public abstract class BaseBullet extends MovableObject {
             i = (int) (i - speed * Math.cos((rota - 270) / 180 * Math.PI));
             j = (int) (j - speed * Math.sin((rota - 270) / 180 *Math.PI));
         }
-
         iCenter = i + 32;
         jCenter = j + 32;
 
+        for (BaseEnemy e: spawner.enemies) {
+            if (this.inRange(e)) {
+                e.enemyHealth = e.enemyHealth - this.damage;
+                owner.bullets.remove(this);
+                break;
+            }
+        }
+
+        if(this.outRange()) {
+            owner.bullets.remove(this);
+        }
     }
 }

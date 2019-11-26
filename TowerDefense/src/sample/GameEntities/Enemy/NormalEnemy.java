@@ -8,21 +8,20 @@ import sample.*;
 import javafx.scene.image.Image;
 
 public class NormalEnemy extends BaseEnemy {
-    //Image gun;
-    Image pedestal;
+
+    Image enemy;
 
     public NormalEnemy(int x, int y) {
         this.x = x;
         this.y = y;
 
-        //gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile291.png");
-        pedestal = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile245.png");
+        enemy = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile245.png");
 
         i = x * Config.tileScale;
         j = y * Config.tileScale;
 
-        widthImg = (int) pedestal.getWidth();
-        heightImg = (int) pedestal.getHeight();
+        widthImg = (int) enemy.getWidth();
+        heightImg = (int) enemy.getHeight();
 
         iCenter = x * Config.tileScale + widthImg / 2;
         jCenter = y * Config.tileScale + heightImg / 2;
@@ -37,29 +36,20 @@ public class NormalEnemy extends BaseEnemy {
     public void render(GraphicsContext gc) {
         SnapshotParameters snapshotParameters = new SnapshotParameters();
         snapshotParameters.setFill(Color.TRANSPARENT);
-        //ImageView gunImgView = new ImageView(gun);
-        ImageView pedestalImgView = new ImageView(pedestal);
+        ImageView enemyImgView = new ImageView(enemy);
 
+        enemyImgView.setRotate(this.direction.getDegree());
 
-        //gunImgView.setRotate(this.direction.getDegree());
-        pedestalImgView.setRotate(this.direction.getDegree());
+        Image enemy = enemyImgView.snapshot(snapshotParameters, null);
 
-        Image pedestal = pedestalImgView.snapshot(snapshotParameters, null);
-       // Image gun = gunImgView.snapshot(snapshotParameters, null);
+        gc.drawImage(enemy, i, j);
 
-        gc.drawImage(pedestal, i, j);
-        //gc.drawImage(gun, i, j);
-
-        /*gc.setFill(Color.BLACK);
-        gc.fillOval(i - 5, j - 5, 10, 10);
-        gc.setFill(Color.RED);
-        gc.fillOval(iCenter - 5, jCenter - 5,10, 10);*/
         gc.setFill(Color.RED);
         gc.fillRect(i, j - 5, widthImg, 5);
         gc.setFill(Color.GREEN);
-        gc.fillRect(i, j - 5, (double) (widthImg) * this.enemyHealth / 100, 5);
+        gc.fillRect(i, j - 5, (double) (widthImg) * this.enemyHealth / Config.NORMAL_ENEMY_HEALTH, 5);
         gc.setFill(Color.BLACK);
         gc.setStroke(Color.BLACK);
-        gc.strokeRect(i,j-5,widthImg,5);
+        gc.strokeRect(i, j-5, widthImg, 5);
     }
 }

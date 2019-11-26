@@ -8,7 +8,6 @@ import javafx.scene.text.FontWeight;
 
 import sample.Config;
 
-
 public class Coin extends ImmovableObject {
     public int coin;
 

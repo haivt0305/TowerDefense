@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import sample.Config;
 
 public class BigRock extends BaseObstacle {
+
     Image bigRock;
 
     public BigRock(int x, int y) {

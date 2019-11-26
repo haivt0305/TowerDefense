@@ -28,7 +28,6 @@ public class Map {
         for (int i = 0; i < MAP_SPRITES.length; i++) {
             for (int j = 0; j < MAP_SPRITES[i].length; j++) {
                 Image image = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile" + MAP_SPRITES[i][j] + ".png");
-
                 gc.drawImage(image, j * Config.tileScale, i * Config.tileScale);
             }
         }

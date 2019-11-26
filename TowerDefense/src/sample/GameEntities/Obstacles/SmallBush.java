@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import sample.Config;
 
 public class SmallBush extends BaseObstacle {
+
     Image smallBush;
 
     public SmallBush(int x, int y) {

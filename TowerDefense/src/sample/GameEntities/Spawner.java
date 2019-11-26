@@ -10,6 +10,7 @@ import java.util.List;
 import static sample.Main.*;
 
 public class Spawner extends MovableObject {
+
     private int delay;
     public int creatingTime;
     private int number;
@@ -18,9 +19,6 @@ public class Spawner extends MovableObject {
     private boolean check;
 
     public Spawner(int delay, int creatingTime, int number) {
-        /*this.delay = delay;
-        this.creatingTime = creatingTime;
-        this.number = number;*/
         this.x = -1;
         this.y = 8;
         this.i = x * Config.tileScale;

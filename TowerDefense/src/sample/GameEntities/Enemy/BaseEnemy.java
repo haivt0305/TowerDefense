@@ -1,25 +1,21 @@
 package sample.GameEntities.Enemy;
 
-import sample.Config;
 import sample.Direction;
 import sample.GameEntities.MovableObject;
 import sample.GameEntities.Road;
-import sample.GameEntities.Tower.BaseTower;
 
 import sample.*;
 
 import static sample.Main.spawner;
 
-
 public abstract class BaseEnemy extends MovableObject {
+
     public double enemyHealth;
     int coin;
     double speed;
-
     Direction direction;
     public int widthImg;
     public int heightImg;
-
     private int wayPointIndex = 0;
 
     private Point getNextWayPoint() {
@@ -31,8 +27,7 @@ public abstract class BaseEnemy extends MovableObject {
 
     private void calculateDirection() {
         if (wayPointIndex >= Road.wayPoints.length - 1) {
-            // Enemy den way point cuoi
-            Main.playerHealth.setPlayerHealth(Main.playerHealth.getPlayerHealth()-1);
+            Main.playerHealth.setPlayerHealth(Main.playerHealth.getPlayerHealth() - 1);
             spawner.enemies.remove(this);
         }
 
@@ -57,6 +52,7 @@ public abstract class BaseEnemy extends MovableObject {
             Main.coin.setCoin(Main.coin.getCoin() + this.coin);
             spawner.enemies.remove(this);
         }
+
         calculateDirection();
 
         switch (direction) {
