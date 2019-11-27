@@ -16,7 +16,7 @@ public class NormalBullet extends BaseBullet {
         this.tower = tower;
         damage = Config.NORMAL_BULLET_DAMAGE;
         speed = Config.NORMAL_BULLET_SPEED;
-        this.rota = rota;
+        this.rotate = rota;
         bullet = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile275.png") ;
     }
 

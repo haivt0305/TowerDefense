@@ -16,7 +16,7 @@ public class MachineGunBullet extends BaseBullet {
         this.tower = tower;
         damage = Config.MACHINE_GUN_BULLET_DAMAGE;
         speed = Config.MACHINE_GUN_BULLET_SPEED;
-        this.rota = rota;
+        this.rotate = rota;
         bullet = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile272.png") ;
     }
 

@@ -16,7 +16,7 @@ public class SniperBullet extends BaseBullet {
         this.tower = tower;
         damage = Config.SNIPER_BULLET_DAMAGE;
         speed = Config.SNIPER_BULLET_SPEED;
-        this.rota = rota;
+        this.rotate = rota;
         bullet = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile274.png") ;
     }
 

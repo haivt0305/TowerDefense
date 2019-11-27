@@ -35,7 +35,7 @@ public class Main extends Application {
     public static Tick tick = new Tick();
     public static AnimationTimer timer;
     public static Coin coin = new Coin(300);
-    public static PlayerHealth playerHealth = new PlayerHealth(20);
+    public static PlayerHealth playerHealth = new PlayerHealth(1);
     public static Group root = new Group();
     public static Scene scene = new Scene(root);
     public static List<MovableObject> movableObjects = new ArrayList<>();

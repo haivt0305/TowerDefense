@@ -7,60 +7,20 @@
       <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Bullet/MachineGunBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Bullet/MachineGunBullet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Bullet/NormalBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Bullet/NormalBullet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Bullet/SniperBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Bullet/SniperBullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Coin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Coin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Enemy/BaseEnemy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Enemy/BaseEnemy$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Enemy/BaseEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Enemy/BaseEnemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Enemy/BossEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Enemy/BossEnemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Enemy/NormalEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Enemy/NormalEnemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Enemy/SmallerEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Enemy/SmallerEnemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Enemy/TankerEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Enemy/TankerEnemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Obstacles/BigBush.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Obstacles/BigBush.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Obstacles/BigRock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Obstacles/BigRock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Obstacles/SmallBush.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Obstacles/SmallBush.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Obstacles/SmallRock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Obstacles/SmallRock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/PlayerHealth.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/PlayerHealth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Road.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Road.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Shop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Spawner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Spawner.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Tower/BaseTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Tower/BaseTower.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Tower/MachineGunTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Tower/MachineGunTower.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Tower/NormalTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Tower/NormalTower.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Tower/SniperTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/GameEntities/Tower/SniperTower.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/Main$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/Main$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TD/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/Music.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TD/sample/Music.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TD/sample/Rotation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shooting.mp3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Bullet/BaseBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Bullet/BaseBullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Bullet/MachineGunBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Bullet/MachineGunBullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Bullet/NormalBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Bullet/NormalBullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Bullet/SniperBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Bullet/SniperBullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Enemy/BaseEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Enemy/BaseEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Enemy/BossEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Enemy/BossEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Enemy/NormalEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Enemy/NormalEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Enemy/SmallerEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Enemy/SmallerEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Enemy/TankerEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Enemy/TankerEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Road.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Road.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Spawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Spawner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Tower/BaseTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Tower/BaseTower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Tower/MachineGunTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Tower/MachineGunTower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Tower/NormalTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Tower/NormalTower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/GameEntities/Tower/SniperTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameEntities/Tower/SniperTower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Music.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Music.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Rotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Rotate.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -144,7 +104,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/TowerDefense" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />

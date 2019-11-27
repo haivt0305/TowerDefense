@@ -13,7 +13,7 @@ public abstract class BaseTower extends MovableObject {
     double damage;
     double fireRate;
     double fireRange;
-    double rota;
+    double rotate;
     double timeShot;
     int price;
 

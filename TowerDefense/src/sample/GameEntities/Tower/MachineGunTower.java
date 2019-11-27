@@ -32,7 +32,7 @@ public class MachineGunTower extends BaseTower {
         fireRange = Config.MACHINE_GUN_TOWER_RANGE;
         price = Config.MACHINE_GUN_TOWER_PRICE;
         this.timeShot = 0;
-        this.rota = 0;
+        this.rotate = 0;
         gun = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile250.png");
         base = new Image("file:src/AssetsKit_2/PNG/Default size/towerDefense_tile182.png");
     }
@@ -41,9 +41,9 @@ public class MachineGunTower extends BaseTower {
     public void update() {
         for (BaseEnemy a : spawner.enemies) {
             if (this.shooting(a)) {
-                this.rota = Rotate.degree(this.iCenter, this.jCenter, a.iCenter, a.jCenter);
+                this.rotate = Rotate.degree(this.iCenter, this.jCenter, a.iCenter, a.jCenter);
                 if (tick.getTick() >= timeShot + fireRate) {
-                    bullets.add(new MachineGunBullet(this.i, this.j, this.rota, this));
+                    bullets.add(new MachineGunBullet(this.i, this.j, this.rotate, this));
                     timeShot = tick.getTick();
                     MediaPlayer machine = new MediaPlayer(Music.machineMedia);
                     machine.play();
@@ -59,7 +59,7 @@ public class MachineGunTower extends BaseTower {
         SnapshotParameters snapshotParameters = new SnapshotParameters();
 
         snapshotParameters.setFill(Color.TRANSPARENT);
-        snapshotParameters.setTransform(new javafx.scene.transform.Rotate(this.rota, 32, 32));
+        snapshotParameters.setTransform(new javafx.scene.transform.Rotate(this.rotate, 32, 32));
         snapshotParameters.setViewport(new Rectangle2D(0, 0, 64, 64));
 
         Image gun = gunImgView.snapshot(snapshotParameters,null);
