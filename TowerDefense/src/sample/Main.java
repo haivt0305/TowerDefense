@@ -68,9 +68,16 @@ public class Main extends Application {
 
         Button button = new Button("", imageView_start_button);
         button.setWrapText(true);
-        button.setTranslateX(Config.tileWidth * Config.tileScale - 780);
+        button.setTranslateX(Config.tileWidth * Config.tileScale - 760);
         button.setTranslateY(Config.tileHeight * Config.tileScale - 300);
+        
+        Image start_button = new Image("file:src/AssetsKit_2/Gameover.png");
+        ImageView imageView_start_button = new ImageView(start_button);
+        imageView_menu.setFitHeight(Config.tileHeight * Config.tileScale - 1280);
+        imageView_menu.setFitWidth(Config.tileWidth * Config.tileScale - 640);
+        root.getChildren().add(imageView_menu);
 
+        
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -91,6 +98,7 @@ public class Main extends Application {
                     }
                 };
                 timer.start();
+                root.getChildren().add(button);
             }
         });
         immovableObjects.add(tick);
